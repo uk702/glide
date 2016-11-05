@@ -11,6 +11,9 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/Masterminds/semver"
+	"github.com/Masterminds/vcs"
+	"github.com/codegangsta/cli"
 	"github.com/uk702/glide/cache"
 	"github.com/uk702/glide/cfg"
 	"github.com/uk702/glide/dependency"
@@ -18,9 +21,6 @@ import (
 	"github.com/uk702/glide/msg"
 	gpath "github.com/uk702/glide/path"
 	"github.com/uk702/glide/util"
-	"github.com/Masterminds/semver"
-	"github.com/Masterminds/vcs"
-	"github.com/codegangsta/cli"
 )
 
 // Installer provides facilities for installing the repos in a config file.
@@ -285,8 +285,7 @@ func (i *Installer) Export(conf *cfg.Config) error {
 						msg.Die(err.Error())
 					}
 					msg.Info("--> Exporting %s", dep.Name)
-					
-					//Lilx
+
 					if repo != nil {
 						if err := repo.ExportDir(filepath.Join(vp, filepath.ToSlash(dep.Name))); err != nil {
 							msg.Err("Export failed for %s: %s\n", dep.Name, err)

@@ -1,3 +1,16 @@
+# Release 1.2.0 (2016-11-04)
+
+## Added
+- #20: Added MustParse function for versions (thanks @adamreese)
+- #15: Added increment methods on versions (thanks @mh-cbon)
+
+## Fixed
+- Issue #21: Per the SemVer spec (section 9) a pre-release is unstable and
+  might not satisfy the intended compatibility. The change here ignores pre-releases
+  on constraint checks (e.g., ~ or ^) when a pre-release is not part of the
+  constraint. For example, `^1.2.3` will ignore pre-releases while
+  `^1.2.3-alpha` will include them.
+
 # Release 1.1.1 (2016-06-30)
 
 ## Changed

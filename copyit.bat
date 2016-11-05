@@ -1,0 +1,1 @@
+copy D:\workspace\glide\bin\glide.exe D:\gopath\bin

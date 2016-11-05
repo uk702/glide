@@ -1,3 +1,12 @@
+# 1.9.0 (unreleased)
+
+## Changed
+- Removed auto-detection for Google Code as the service is deprecated
+- Added auto-detection of git.openstack.org
+
+## Fixed
+- #53: Git not fetching tags off branch
+
 # 1.8.0 (2016-06-29)
 
 ## Added

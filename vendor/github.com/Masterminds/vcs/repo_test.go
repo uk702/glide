@@ -46,7 +46,7 @@ func TestTypeSwitch(t *testing.T) {
 		}
 	}()
 
-	repo, err := NewSvnRepo("https://github.com/Masterminds/vcsTestRepo/trunk", tempDir+"/VCSTestRepo")
+	repo, err := NewSvnRepo("https://github.com/Masterminds/VCSTestRepo/trunk", tempDir+"/VCSTestRepo")
 	if err != nil {
 		t.Error(err)
 	}
@@ -55,7 +55,7 @@ func TestTypeSwitch(t *testing.T) {
 		t.Errorf("Unable to checkout SVN repo for repo switching tests. Err was %s", err)
 	}
 
-	_, err = NewRepo("https://github.com/Masterminds/vcsTestRepo", tempDir+"/VCSTestRepo")
+	_, err = NewRepo("https://github.com/Masterminds/VCSTestRepo", tempDir+"/VCSTestRepo")
 	if err != ErrWrongVCS {
 		t.Errorf("Not detecting repo switch from SVN to Git")
 	}

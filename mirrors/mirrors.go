@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/uk702/glide/msg"
 	gpath "github.com/uk702/glide/path"
@@ -25,12 +26,33 @@ type mirror struct {
 // - new repo location
 // - vcs type
 func Get(k string) (bool, string, string) {
-	o, f := mirrors[k]
-	if !f {
-		return false, "", ""
+	// o, f := mirrors[k]
+	// if !f {
+	// 	return false, "", ""
+	// }
+	// fmt.Println(">>> Get, k =", k)
+
+	// Lilx
+	fullPath := ""
+	vcs := ""
+	for key, value := range mirrors {
+		if strings.HasPrefix(k, key) {
+			keyLen := len(key)
+
+			if (keyLen == len(value.Repo)) || (key[keyLen-1] == '/') || (value.Repo[keyLen] == '/') {
+				fullPath = strings.Replace(k, key, value.Repo, 1)
+				vcs = value.Vcs
+			}
+		}
 	}
 
-	return true, o.Repo, o.Vcs
+	// fmt.Println(">>> Get, result =", fullPath)
+	if fullPath != "" {
+		fmt.Println("use", fullPath)
+		return true, fullPath, vcs
+	}
+
+	return false, "", ""
 }
 
 // Load pulls the mirrors into memory
