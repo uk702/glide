@@ -223,6 +223,7 @@ func IsDirectoryEmpty(dir string) (bool, error) {
 // We copy the directory here rather than jumping out to a shell so we can
 // support multiple operating systems.
 func CopyDir(source string, dest string) error {
+	fmt.Println("Copy: " + source + " => " + dest)
 
 	// get properties of source dir
 	si, err := os.Stat(source)

@@ -3,10 +3,10 @@ package repo
 import (
 	"sync"
 
+	"github.com/codegangsta/cli"
 	"github.com/uk702/glide/cache"
 	"github.com/uk702/glide/cfg"
 	"github.com/uk702/glide/msg"
-	"github.com/codegangsta/cli"
 )
 
 // SetReference is a command to set the VCS reference (commit id, tag, etc) for
@@ -42,7 +42,8 @@ func SetReference(conf *cfg.Config, resolveTest bool) error {
 					}
 					cache.Lock(key)
 					if err := VcsVersion(dep); err != nil {
-						msg.Err("Failed to set version on %s to %s: %s\n", dep.Name, dep.Reference, err)
+						// Lilx
+						// msg.Err("Failed to set version on %s to %s: %s\n", dep.Name, dep.Reference, err)
 
 						// Capture the error while making sure the concurrent
 						// operations don't step on each other.

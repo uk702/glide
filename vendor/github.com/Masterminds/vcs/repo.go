@@ -212,7 +212,14 @@ func (b *base) setLocalPath(local string) {
 }
 
 func (b base) run(cmd string, args ...string) ([]byte, error) {
+	fmt.Println(cmd)
+	for _, arg := range args {
+		fmt.Println(arg)
+	}
+
 	out, err := exec.Command(cmd, args...).CombinedOutput()
+	fmt.Printf("%s\n", out)
+
 	b.log(out)
 	if err != nil {
 		err = fmt.Errorf("%s: %s", out, err)
@@ -221,10 +228,17 @@ func (b base) run(cmd string, args ...string) ([]byte, error) {
 }
 
 func (b *base) RunFromDir(cmd string, args ...string) ([]byte, error) {
+	// fmt.Println(cmd)
+	// for _, arg := range args {
+	// 	fmt.Println(arg)
+	// }
+
 	c := exec.Command(cmd, args...)
 	c.Dir = b.local
 	c.Env = envForDir(c.Dir)
 	out, err := c.CombinedOutput()
+	// fmt.Printf("%s\n", out)
+
 	return out, err
 }
 

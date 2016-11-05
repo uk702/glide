@@ -5,10 +5,8 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"runtime"
 	"strings"
 	"sync"
-	"syscall"
 	"time"
 
 	"github.com/Masterminds/semver"
@@ -352,44 +350,49 @@ func (i *Installer) Export(conf *cfg.Config) error {
 		done <- struct{}{}
 	}
 
-	if returnErr != nil {
-		return returnErr
-	}
+	// Lilx
+	// if returnErr != nil {
+	// 	return returnErr
+	// }
 
-	msg.Info("Replacing existing vendor dependencies")
-	err = os.RemoveAll(i.VendorPath())
-	if err != nil {
-		return err
-	}
+	/*
+		msg.Info("Replacing existing vendor dependencies")
+		err = os.RemoveAll(i.VendorPath())
+		if err != nil {
+			return err
+		}
 
-	err = os.Rename(vp, i.VendorPath())
+		err = os.Rename(vp, i.VendorPath())
 
-	if err != nil {
-		// When there are different physical devices we cannot rename cross device.
-		// Instead we copy.
-		switch terr := err.(type) {
-		case *os.LinkError:
-			// syscall.EXDEV is the common name for the cross device link error
-			// which has varying output text across different operating systems.
-			if terr.Err == syscall.EXDEV {
-				msg.Debug("Cross link err, trying manual copy: %s", err)
-				return gpath.CopyDir(vp, i.VendorPath())
-			} else if runtime.GOOS == "windows" {
-				// In windows it can drop down to an operating system call that
-				// returns an operating system error with a different number and
-				// message. Checking for that as a fall back.
-				noerr, ok := terr.Err.(syscall.Errno)
-				// 0x11 (ERROR_NOT_SAME_DEVICE) is the windows error.
-				// See https://msdn.microsoft.com/en-us/library/cc231199.aspx
-				if ok && noerr == 0x11 {
-					msg.Debug("Cross link err on Windows, trying manual copy: %s", err)
+		if err != nil {
+			// When there are different physical devices we cannot rename cross device.
+			// Instead we copy.
+			switch terr := err.(type) {
+			case *os.LinkError:
+				// syscall.EXDEV is the common name for the cross device link error
+				// which has varying output text across different operating systems.
+				if terr.Err == syscall.EXDEV {
+					msg.Debug("Cross link err, trying manual copy: %s", err)
 					return gpath.CopyDir(vp, i.VendorPath())
+				} else if runtime.GOOS == "windows" {
+					// In windows it can drop down to an operating system call that
+					// returns an operating system error with a different number and
+					// message. Checking for that as a fall back.
+					noerr, ok := terr.Err.(syscall.Errno)
+					// 0x11 (ERROR_NOT_SAME_DEVICE) is the windows error.
+					// See https://msdn.microsoft.com/en-us/library/cc231199.aspx
+					if ok && noerr == 0x11 {
+						msg.Debug("Cross link err on Windows, trying manual copy: %s", err)
+						return gpath.CopyDir(vp, i.VendorPath())
+					}
 				}
 			}
 		}
-	}
+	*/
 
-	return err
+	// 总是使用 CopyDir 的方式，也不删除已有的内容
+	return gpath.CopyDir(vp, i.VendorPath())
+	// return err
 
 }
 
@@ -785,7 +788,7 @@ func (d *VersionHandler) SetVersion(pkg string, addTest bool) (e error) {
 
 	err := VcsVersion(dep)
 	if err != nil {
-		msg.Warn("Unable to set version on %s to %s. Err: %s", root, dep.Reference, err)
+		// msg.Warn("Unable to set version on %s to %s. Err: %s", root, dep.Reference, err)
 		e = err
 	}
 

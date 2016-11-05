@@ -30,7 +30,6 @@ func Get(k string) (bool, string, string) {
 	// if !f {
 	// 	return false, "", ""
 	// }
-	// fmt.Println(">>> Get, k =", k)
 
 	// Lilx
 	fullPath := ""
@@ -39,16 +38,14 @@ func Get(k string) (bool, string, string) {
 		if strings.HasPrefix(k, key) {
 			keyLen := len(key)
 
-			if (keyLen == len(value.Repo)) || (key[keyLen-1] == '/') || (value.Repo[keyLen] == '/') {
+			if (keyLen == len(k)) || (key[keyLen-1] == '/') || (value.Repo[keyLen] == '/') {
 				fullPath = strings.Replace(k, key, value.Repo, 1)
 				vcs = value.Vcs
 			}
 		}
 	}
 
-	// fmt.Println(">>> Get, result =", fullPath)
 	if fullPath != "" {
-		fmt.Println("use", fullPath)
 		return true, fullPath, vcs
 	}
 

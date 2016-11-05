@@ -22,7 +22,8 @@ func Update(installer *repo.Installer, skipRecursive, stripVendor bool) {
 
 	// Try to check out the initial dependencies.
 	if err := installer.Checkout(conf); err != nil {
-		msg.Die("Failed to do initial checkout of config: %s", err)
+		// Lilx
+		// msg.Die("Failed to do initial checkout of config: %s", err)
 	}
 
 	// Set the versions for the initial dependencies so that resolved dependencies
