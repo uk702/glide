@@ -13,4 +13,4 @@ go:
 sudo: false
 
 notifications:
-  irc: "irc.freenode.net#masterminds"
+  irc: "irc.freenode.net#uk702"

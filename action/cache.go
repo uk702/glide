@@ -3,8 +3,8 @@ package action
 import (
 	"os"
 
-	"github.com/Masterminds/glide/cache"
-	"github.com/Masterminds/glide/msg"
+	"github.com/uk702/glide/cache"
+	"github.com/uk702/glide/msg"
 )
 
 // CacheClear clears the Glide cache

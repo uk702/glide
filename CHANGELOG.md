@@ -67,7 +67,7 @@ to be supporting builds for it at this time.
   `glide init` or as separate command
 - #438: Added ability to read symlink basedirs (thanks @klnusbaum)
 - #436: Added .idea to .gitignore
-- #393 and #401: Added a PPA (https://github.com/Masterminds/glide-ppa) and instructions
+- #393 and #401: Added a PPA (https://github.com/uk702/glide-ppa) and instructions
   on using it (thanks @franciscocpg)
 - #390: Added support for custom Go executable name. Needed for environments like
   appengine. Environment variable GLIDE_GO_EXECUTABLE (thanks @dpmcnevin)
@@ -236,8 +236,8 @@ And thanks to @derelk, @franciscocpg, @shawnps, @kngu9, @tugberkugurlu, @rhcarva
 - Issue #146: Glide scans projects not managed by a dependency manager, fetches
   their dependencies, and pins them in the glide.lock file.
 - Issue #99: Glide `get` pins dependencies by default and allows a version to
-  be passed in. For example, `glide get github.com/Masterminds/convert#^1.0.0`
-  will fetch `github.com/Masterminds/convert` with a version of `^1.0.0`.
+  be passed in. For example, `glide get github.com/uk702/convert#^1.0.0`
+  will fetch `github.com/uk702/convert` with a version of `^1.0.0`.
 - Issue #155: Copying packages from the `GOPATH` is now opt-in.
 
 # Release 0.7.2 (2015-11-16)

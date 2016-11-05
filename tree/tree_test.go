@@ -18,7 +18,7 @@ import (
 
 func TestFindInTree(t *testing.T) {
 	l := list.New()
-	l.PushBack("github.com/Masterminds/glide")
+	l.PushBack("github.com/uk702/glide")
 	l.PushBack("github.com/Masterminds/vcs")
 	l.PushBack("github.com/Masterminds/semver")
 

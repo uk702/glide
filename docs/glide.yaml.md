@@ -2,8 +2,8 @@
 
 The `glide.yaml` file contains information about the project and the dependent packages. Here the elements of the `glide.yaml` file are outlined.
 
-    package: github.com/Masterminds/glide
-    homepage: https://masterminds.github.io/glide
+    package: github.com/uk702/glide
+    homepage: https://uk702.github.io/glide
     license: MIT
     owners:
     - name: Matt Butcher
@@ -20,7 +20,7 @@ The `glide.yaml` file contains information about the project and the dependent p
     - package: gopkg.in/yaml.v2
     - package: github.com/Masterminds/vcs
       version: ^1.2.0
-      repo:    git@github.com:Masterminds/vcs
+      repo:    git@github.com:uk702/vcs
       vcs:     git
     - package: github.com/codegangsta/cli
     - package: github.com/Masterminds/semver

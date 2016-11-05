@@ -119,10 +119,12 @@ func Err(msg string, args ...interface{}) {
 // called.
 func (m *Messenger) Die(msg string, args ...interface{}) {
 	m.Err(msg, args...)
-	if m.PanicOnDie {
-		panic("trapped a Die() call")
-	}
-	os.Exit(m.ecode)
+	
+	// Lilx
+	// if m.PanicOnDie {
+	// 	panic("trapped a Die() call")
+	// }
+	// os.Exit(m.ecode)
 }
 
 // Die prints an error message and immediately exits the application using the

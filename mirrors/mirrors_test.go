@@ -7,12 +7,12 @@ repos:
 - original: github.com/Masterminds/semver
   repo: file:///path/to/local/repo
   vcs: git
-- original: github.com/Masterminds/atest
+- original: github.com/uk702/atest
   repo: github.com/example/atest
 `
 
 var ooutyml = `repos:
-- original: github.com/Masterminds/atest
+- original: github.com/uk702/atest
   repo: github.com/example/atest
 - original: github.com/Masterminds/semver
   repo: file:///path/to/local/repo

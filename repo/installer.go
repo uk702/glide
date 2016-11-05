@@ -11,13 +11,13 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/Masterminds/glide/cache"
-	"github.com/Masterminds/glide/cfg"
-	"github.com/Masterminds/glide/dependency"
-	"github.com/Masterminds/glide/importer"
-	"github.com/Masterminds/glide/msg"
-	gpath "github.com/Masterminds/glide/path"
-	"github.com/Masterminds/glide/util"
+	"github.com/uk702/glide/cache"
+	"github.com/uk702/glide/cfg"
+	"github.com/uk702/glide/dependency"
+	"github.com/uk702/glide/importer"
+	"github.com/uk702/glide/msg"
+	gpath "github.com/uk702/glide/path"
+	"github.com/uk702/glide/util"
 	"github.com/Masterminds/semver"
 	"github.com/Masterminds/vcs"
 	"github.com/codegangsta/cli"
@@ -285,17 +285,21 @@ func (i *Installer) Export(conf *cfg.Config) error {
 						msg.Die(err.Error())
 					}
 					msg.Info("--> Exporting %s", dep.Name)
-					if err := repo.ExportDir(filepath.Join(vp, filepath.ToSlash(dep.Name))); err != nil {
-						msg.Err("Export failed for %s: %s\n", dep.Name, err)
-						// Capture the error while making sure the concurrent
-						// operations don't step on each other.
-						lock.Lock()
-						if returnErr == nil {
-							returnErr = err
-						} else {
-							returnErr = cli.NewMultiError(returnErr, err)
+					
+					//Lilx
+					if repo != nil {
+						if err := repo.ExportDir(filepath.Join(vp, filepath.ToSlash(dep.Name))); err != nil {
+							msg.Err("Export failed for %s: %s\n", dep.Name, err)
+							// Capture the error while making sure the concurrent
+							// operations don't step on each other.
+							lock.Lock()
+							if returnErr == nil {
+								returnErr = err
+							} else {
+								returnErr = cli.NewMultiError(returnErr, err)
+							}
+							lock.Unlock()
 						}
-						lock.Unlock()
 					}
 					cache.Unlock(key)
 					wg.Done()

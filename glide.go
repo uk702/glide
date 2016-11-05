@@ -5,9 +5,9 @@
 //
 // A glide.yaml file looks like:
 //
-//		package: github.com/Masterminds/glide
+//		package: github.com/uk702/glide
 //		imports:
-//		- package: github.com/Masterminds/cookoo
+//		- package: github.com/uk702/cookoo
 //		- package: github.com/kylelemons/go-gypsy
 //		  subpackages:
 //		  - yaml
@@ -21,12 +21,12 @@ package main
 import (
 	"path/filepath"
 
-	"github.com/Masterminds/glide/action"
-	"github.com/Masterminds/glide/cache"
-	"github.com/Masterminds/glide/msg"
-	gpath "github.com/Masterminds/glide/path"
-	"github.com/Masterminds/glide/repo"
-	"github.com/Masterminds/glide/util"
+	"github.com/uk702/glide/action"
+	"github.com/uk702/glide/cache"
+	"github.com/uk702/glide/msg"
+	gpath "github.com/uk702/glide/path"
+	"github.com/uk702/glide/repo"
+	"github.com/uk702/glide/util"
 
 	"github.com/codegangsta/cli"
 
@@ -41,9 +41,9 @@ const usage = `Vendor Package Management for your Go projects.
    Each project should have a 'glide.yaml' file in the project directory. Files
    look something like this:
 
-       package: github.com/Masterminds/glide
+       package: github.com/uk702/glide
        imports:
-       - package: github.com/Masterminds/cookoo
+       - package: github.com/uk702/cookoo
          version: 1.1.0
        - package: github.com/kylelemons/go-gypsy
          subpackages:
@@ -106,11 +106,14 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Lilx
 	// If there was a Error message exit non-zero.
 	if msg.HasErrored() {
 		m := msg.Color(msg.Red, "An Error has occurred")
 		msg.Msg(m)
-		os.Exit(2)
+
+		// Lilx
+		// os.Exit(2)
 	}
 }
 
@@ -160,9 +163,9 @@ func commands() []cli.Command {
 			Description: `Gets one or more package (like 'go get') and then adds that file
    to the glide.yaml file. Multiple package names can be specified on one line.
 
-       $ glide get github.com/Masterminds/cookoo/web
+       $ glide get github.com/uk702/cookoo/web
 
-   The above will install the project github.com/Masterminds/cookoo and add
+   The above will install the project github.com/uk702/cookoo and add
    the subpackage 'web'.
 
    If a fetched dependency has a glide.yaml file, configuration from Godep,

@@ -44,13 +44,13 @@ ranges to use.
 You can download one or more packages to your `vendor` directory and have it added to your
 `glide.yaml` file with `glide get`.
 
-    $ glide get github.com/Masterminds/cookoo
+    $ glide get github.com/uk702/cookoo
 
 When `glide get` is used it will introspect the listed package to resolve its dependencies including using Godep, GPM, Gom, and GB config files.
 
 The `glide get` command can have a [version or range](versions.md) passed in with the package name. For example,
 
-    $ glide get github.com/Masterminds/cookoo#^1.2.3
+    $ glide get github.com/uk702/cookoo#^1.2.3
 
 The version is separated from the package name by an anchor (`#`). If no version or range is specified and the dependency uses Semantic Versions Glide will prompt you to ask if you want to use them.
 
@@ -104,10 +104,10 @@ Glide's `list` command shows an alphabetized list of all the packages that a pro
 
     $ glide list
     INSTALLED packages:
-    	vendor/github.com/Masterminds/cookoo
-    	vendor/github.com/Masterminds/cookoo/fmt
-    	vendor/github.com/Masterminds/cookoo/io
-    	vendor/github.com/Masterminds/cookoo/web
+    	vendor/github.com/uk702/cookoo
+    	vendor/github.com/uk702/cookoo/fmt
+    	vendor/github.com/uk702/cookoo/io
+    	vendor/github.com/uk702/cookoo/web
     	vendor/github.com/Masterminds/semver
     	vendor/github.com/Masterminds/vcs
     	vendor/github.com/codegangsta/cli

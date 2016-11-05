@@ -12,7 +12,7 @@ containing dependent packages for the project. These vendor packages can be
 installed by a tool (e.g. glide), similar to `go get` or they can be vendored and
 distributed with the package.
 
-[![Build Status](https://travis-ci.org/Masterminds/glide.svg)](https://travis-ci.org/Masterminds/glide) [![Go Report Card](https://goreportcard.com/badge/github.com/Masterminds/glide)](https://goreportcard.com/report/github.com/Masterminds/glide) [![GoDoc](https://godoc.org/github.com/Masterminds/glide?status.svg)](https://godoc.org/github.com/Masterminds/glide) [![Documentation Status](https://readthedocs.org/projects/glide/badge/?version=stable)](http://glide.readthedocs.org/en/stable/?badge=stable) [![Documentation Status](https://readthedocs.org/projects/glide/badge/?version=latest)](http://glide.readthedocs.org/en/latest/?badge=latest) [![Join the chat at https://gitter.im/Masterminds/glide](https://badges.gitter.im/Masterminds/glide.svg)](https://gitter.im/Masterminds/glide?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/uk702/glide.svg)](https://travis-ci.org/uk702/glide) [![Go Report Card](https://goreportcard.com/badge/github.com/uk702/glide)](https://goreportcard.com/report/github.com/uk702/glide) [![GoDoc](https://godoc.org/github.com/uk702/glide?status.svg)](https://godoc.org/github.com/uk702/glide) [![Documentation Status](https://readthedocs.org/projects/glide/badge/?version=stable)](http://glide.readthedocs.org/en/stable/?badge=stable) [![Documentation Status](https://readthedocs.org/projects/glide/badge/?version=latest)](http://glide.readthedocs.org/en/latest/?badge=latest) [![Join the chat at https://gitter.im/uk702/glide](https://badges.gitter.im/uk702/glide.svg)](https://gitter.im/uk702/glide?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### Features
 
@@ -75,12 +75,12 @@ A project is structured like this:
   |-- vendor
        |-- github.com
             |
-            |-- Masterminds
+            |-- uk702
                   |
                   |-- ... etc.
 ```
 
-*Take a look at [the Glide source code](http://github.com/Masterminds/glide)
+*Take a look at [the Glide source code](http://github.com/uk702/glide)
 to see this philosophy in action.*
 
 ## Install
@@ -100,15 +100,15 @@ $ brew install glide
 On Ubuntu Precise(12.04), Trusty (14.04), Wily (15.10) or Xenial (16.04) you can install from our PPA:
 
 ```
-sudo add-apt-repository ppa:masterminds/glide && sudo apt-get update
+sudo add-apt-repository ppa:uk702/glide && sudo apt-get update
 sudo apt-get install glide
 ```
 
-[Binary packages](https://github.com/Masterminds/glide/releases) are available for Mac, Linux and Windows.
+[Binary packages](https://github.com/uk702/glide/releases) are available for Mac, Linux and Windows.
 
 To build from source you can:
 
-1. Clone this repository into `$GOPATH/src/github.com/Masterminds/glide` and
+1. Clone this repository into `$GOPATH/src/github.com/uk702/glide` and
    change directory into it
 2. If you are using Go 1.5 ensure the environment variable GO15VENDOREXPERIMENT is set, for
    example by running `export GO15VENDOREXPERIMENT=1`. In Go 1.6 it is enabled by default and
@@ -127,7 +127,7 @@ manage itself, too.
 ```
 $ glide create                            # Start a new workspace
 $ open glide.yaml                         # and edit away!
-$ glide get github.com/Masterminds/cookoo # Get a package and add to glide.yaml
+$ glide get github.com/uk702/cookoo # Get a package and add to glide.yaml
 $ glide install                           # Install packages and dependencies
 # work, work, work
 $ go build                                # Go tools work normally
@@ -182,7 +182,7 @@ You can download one or more packages to your `vendor` directory and have it add
 `glide.yaml` file with `glide get`.
 
 ```
-$ glide get github.com/Masterminds/cookoo
+$ glide get github.com/uk702/cookoo
 ```
 
 When `glide get` is used it will introspect the listed package to resolve its
@@ -256,37 +256,37 @@ gives data like this:
 
 ```
 $ glide tree
-github.com/Masterminds/glide
-	github.com/Masterminds/cookoo   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/cookoo)
-		github.com/Masterminds/cookoo/io   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/cookoo/io)
-	github.com/Masterminds/glide/cmd   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/cmd)
-		github.com/Masterminds/cookoo   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/cookoo)
-			github.com/Masterminds/cookoo/io   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/cookoo/io)
-		github.com/Masterminds/glide/gb   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/gb)
-		github.com/Masterminds/glide/util   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/util)
-			github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
-		github.com/Masterminds/glide/yaml   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/yaml)
-			github.com/Masterminds/glide/util   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/util)
-				github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
-			github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
+github.com/uk702/glide
+	github.com/uk702/cookoo   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/uk702/cookoo)
+		github.com/uk702/cookoo/io   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/uk702/cookoo/io)
+	github.com/uk702/glide/cmd   (/Users/mfarina/Code/go/src/github.com/uk702/glide/cmd)
+		github.com/uk702/cookoo   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/uk702/cookoo)
+			github.com/uk702/cookoo/io   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/uk702/cookoo/io)
+		github.com/uk702/glide/gb   (/Users/mfarina/Code/go/src/github.com/uk702/glide/gb)
+		github.com/uk702/glide/util   (/Users/mfarina/Code/go/src/github.com/uk702/glide/util)
+			github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
+		github.com/uk702/glide/yaml   (/Users/mfarina/Code/go/src/github.com/uk702/glide/yaml)
+			github.com/uk702/glide/util   (/Users/mfarina/Code/go/src/github.com/uk702/glide/util)
+				github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
+			github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
 			gopkg.in/yaml.v2   (/Users/mfarina/Code/go/src/gopkg.in/yaml.v2)
-		github.com/Masterminds/semver   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/semver)
-		github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
-		github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/codegangsta/cli)
-	github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/codegangsta/cli)
-	github.com/Masterminds/cookoo   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/cookoo)
-		github.com/Masterminds/cookoo/io   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/cookoo/io)
-	github.com/Masterminds/glide/gb   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/gb)
-	github.com/Masterminds/glide/util   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/util)
-		github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
-	github.com/Masterminds/glide/yaml   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/yaml)
-		github.com/Masterminds/glide/util   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/util)
-			github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
-		github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
+		github.com/Masterminds/semver   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/semver)
+		github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
+		github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/codegangsta/cli)
+	github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/codegangsta/cli)
+	github.com/uk702/cookoo   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/uk702/cookoo)
+		github.com/uk702/cookoo/io   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/uk702/cookoo/io)
+	github.com/uk702/glide/gb   (/Users/mfarina/Code/go/src/github.com/uk702/glide/gb)
+	github.com/uk702/glide/util   (/Users/mfarina/Code/go/src/github.com/uk702/glide/util)
+		github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
+	github.com/uk702/glide/yaml   (/Users/mfarina/Code/go/src/github.com/uk702/glide/yaml)
+		github.com/uk702/glide/util   (/Users/mfarina/Code/go/src/github.com/uk702/glide/util)
+			github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
+		github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
 		gopkg.in/yaml.v2   (/Users/mfarina/Code/go/src/gopkg.in/yaml.v2)
-	github.com/Masterminds/semver   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/semver)
-	github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/Masterminds/vcs)
-	github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/Masterminds/glide/vendor/github.com/codegangsta/cli)
+	github.com/Masterminds/semver   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/semver)
+	github.com/Masterminds/vcs   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/Masterminds/vcs)
+	github.com/codegangsta/cli   (/Users/mfarina/Code/go/src/github.com/uk702/glide/vendor/github.com/codegangsta/cli)
 ```
 
 This shows a tree of imports, excluding core libraries. Because
@@ -304,10 +304,10 @@ that a project imports.
 ```
 $ glide list
 INSTALLED packages:
-	vendor/github.com/Masterminds/cookoo
-	vendor/github.com/Masterminds/cookoo/fmt
-	vendor/github.com/Masterminds/cookoo/io
-	vendor/github.com/Masterminds/cookoo/web
+	vendor/github.com/uk702/cookoo
+	vendor/github.com/uk702/cookoo/fmt
+	vendor/github.com/uk702/cookoo/io
+	vendor/github.com/uk702/cookoo/web
 	vendor/github.com/Masterminds/semver
 	vendor/github.com/Masterminds/vcs
 	vendor/github.com/codegangsta/cli
@@ -343,17 +343,17 @@ The `glide.yaml` file does two critical things:
 A brief `glide.yaml` file looks like this:
 
 ```yaml
-package: github.com/Masterminds/glide
+package: github.com/uk702/glide
 import:
   - package: github.com/Masterminds/semver
-  - package: github.com/Masterminds/cookoo
+  - package: github.com/uk702/cookoo
     version: ^1.2.0
-    repo: git@github.com:Masterminds/cookoo.git
+    repo: git@github.com:uk702/cookoo.git
 ```
 
 The above tells `glide` that...
 
-1. This package is named `github.com/Masterminds/glide`
+1. This package is named `github.com/uk702/glide`
 2. That this package depends on two libraries.
 
 The first library exemplifies a minimal package import. It merely gives
@@ -361,12 +361,12 @@ the fully qualified import path.
 
 When Glide reads the definition for the second library, it will get the repo
 from the source in `repo`, checkout the latest version between 1.2.0 and 2.0.0,
-and put it in `github.com/Masterminds/cookoo` in the `vendor` directory. (Note
+and put it in `github.com/uk702/cookoo` in the `vendor` directory. (Note
 that `package` and `repo` can be completely different)
 
 **TIP:** The version is either VCS dependent and can be anything that can be checked
 out or a semantic version constraint that can be parsed by the [`github.com/
-Masterminds/semver`](https://github.com/Masterminds/semver) package.
+Masterminds /semver`](https://github.com/Masterminds/semver) package.
 For example, with Git this can be a branch, tag, or hash. This varies and
 depends on what's supported in the VCS.
 
@@ -378,7 +378,7 @@ importing a package, not a subpackage name. For example, use
 ## Supported Version Control Systems
 
 The Git, SVN, Mercurial (Hg), and Bzr source control systems are supported. This
-happens through the [vcs package](https://github.com/masterminds/vcs).
+happens through the [vcs package](https://github.com/Masterminds/vcs).
 
 ## Frequently Asked Questions (F.A.Q.)
 
@@ -394,7 +394,7 @@ information.
 #### Q: bzr (or hg) is not working the way I expected. Why?
 
 These are works in progress, and may need some additional tuning. Please
-take a look at the [vcs package](https://github.com/masterminds/vcs). If you
+take a look at the [vcs package](https://github.com/Masterminds/vcs). If you
 see a better way to handle it please let us know.
 
 #### Q: Should I check `vendor/` into version control?

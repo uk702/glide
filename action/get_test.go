@@ -4,8 +4,8 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/Masterminds/glide/cfg"
-	"github.com/Masterminds/glide/msg"
+	"github.com/uk702/glide/cfg"
+	"github.com/uk702/glide/msg"
 )
 
 func TestAddPkgsToConfig(t *testing.T) {
@@ -15,12 +15,12 @@ func TestAddPkgsToConfig(t *testing.T) {
 
 	conf := new(cfg.Config)
 	dep := new(cfg.Dependency)
-	dep.Name = "github.com/Masterminds/cookoo"
+	dep.Name = "github.com/uk702/cookoo"
 	dep.Subpackages = append(dep.Subpackages, "convert")
 	conf.Imports = append(conf.Imports, dep)
 
 	names := []string{
-		"github.com/Masterminds/cookoo/fmt",
+		"github.com/uk702/cookoo/fmt",
 		"github.com/Masterminds/semver",
 	}
 
@@ -30,7 +30,7 @@ func TestAddPkgsToConfig(t *testing.T) {
 		t.Error("addPkgsToConfig failed to add github.com/Masterminds/semver")
 	}
 
-	d := conf.Imports.Get("github.com/Masterminds/cookoo")
+	d := conf.Imports.Get("github.com/uk702/cookoo")
 	found := false
 	for _, s := range d.Subpackages {
 		if s == "fmt" {

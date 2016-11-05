@@ -7,8 +7,8 @@
 // To convert yaml into a cfg.Config instance use the cfg.ConfigFromYaml function.
 // The yaml, typically in a glide.yaml file, has the following structure.
 //
-//     package: github.com/Masterminds/glide
-//     homepage: https://masterminds.github.io/glide
+//     package: github.com/uk702/glide
+//     homepage: https://uk702.github.io/glide
 //     license: MIT
 //     owners:
 //     - name: Matt Butcher
@@ -25,7 +25,7 @@
 //     - package: gopkg.in/yaml.v2
 //     - package: github.com/Masterminds/vcs
 //       version: ^1.2.0
-//       repo:    git@github.com:Masterminds/vcs
+//       repo:    git@github.com:uk702/vcs
 //       vcs:     git
 //     - package: github.com/codegangsta/cli
 //     - package: github.com/Masterminds/semver

@@ -20,8 +20,8 @@ import:
     subpackages:
       - yaml
   # Intentionally left spaces at end of next line.
-  - package: github.com/Masterminds/convert
-    repo: git@github.com:Masterminds/convert.git
+  - package: github.com/uk702/convert
+    repo: git@github.com:uk702/convert.git
     vcs: git
     ref: a9949121a2e2192ca92fa6dddfeaaa4a4412d955
     subpackages:
@@ -33,9 +33,9 @@ import:
     arch:
       - i386
       - arm
-  - package: github.com/Masterminds/structable
-  - package: github.com/Masterminds/cookoo/color
-  - package: github.com/Masterminds/cookoo/convert
+  - package: github.com/uk702/structable
+  - package: github.com/uk702/cookoo/color
+  - package: github.com/uk702/cookoo/convert
 
 testImport:
   - package: github.com/kylelemons/go-gypsy
@@ -67,7 +67,7 @@ func TestManualConfigFromYaml(t *testing.T) {
 	found := false
 	found2 := false
 	for _, i := range cfg.Imports {
-		if i.Name == "github.com/Masterminds/convert" {
+		if i.Name == "github.com/uk702/convert" {
 			found = true
 			ref := "a9949121a2e2192ca92fa6dddfeaaa4a4412d955"
 			if i.Reference != ref {
@@ -75,7 +75,7 @@ func TestManualConfigFromYaml(t *testing.T) {
 			}
 		}
 
-		if i.Name == "github.com/Masterminds/cookoo" {
+		if i.Name == "github.com/uk702/cookoo" {
 			found2 = true
 			if i.Subpackages[0] != "color" {
 				t.Error("Dependency separating package and subpackage not working")
@@ -83,10 +83,10 @@ func TestManualConfigFromYaml(t *testing.T) {
 		}
 	}
 	if !found {
-		t.Error("Unable to find github.com/Masterminds/convert")
+		t.Error("Unable to find github.com/uk702/convert")
 	}
 	if !found2 {
-		t.Error("Unable to find github.com/Masterminds/cookoo")
+		t.Error("Unable to find github.com/uk702/cookoo")
 	}
 }
 
@@ -128,7 +128,7 @@ func TestHasDependency(t *testing.T) {
 		t.Error("ConfigFromYaml failed to parse yaml for HasDependency")
 	}
 
-	if c.HasDependency("github.com/Masterminds/convert") != true {
+	if c.HasDependency("github.com/uk702/convert") != true {
 		t.Error("HasDependency failing to pickup depenency")
 	}
 

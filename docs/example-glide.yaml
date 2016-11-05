@@ -1,5 +1,5 @@
 # The name of this package.
-package: github.com/Masterminds/glide
+package: github.com/uk702/glide
 
 # External dependencies.
 import:
@@ -13,11 +13,11 @@ import:
   # Full definition
   # This will check out the given Git repo, set the version to master,
   # use "git" (not "go get") to manage it, and alias the package to the
-  # import path github.com/Masterminds/cookoo
-  - package: github.com/Masterminds/cookoo
+  # import path github.com/uk702/cookoo
+  - package: github.com/uk702/cookoo
     vcs: git
     version: master
-    repo: git@github.com:Masterminds/cookoo.git
+    repo: git@github.com:uk702/cookoo.git
 
   # Here's an example with a commit hash for a version. Since repo is not
   # specified, this will use git to to try to clone
